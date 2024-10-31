@@ -1,0 +1,70 @@
+<p>alumnos works!</p>
+<div class="container">
+    <h2>Agregar Alumno</h2>
+    <form (ngSubmit)="agregarAlumno()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" [(ngModel)]="alumno.nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label>Fecha de Nacimiento:</label>
+        <input type="date" class="form-control" [(ngModel)]="alumno.fecha_nacimiento" name="fecha_nacimiento" required>
+      </div>
+      <div class="form-group">
+        <label>Nombre del Padre:</label>
+        <input type="text" class="form-control" [(ngModel)]="alumno.nombre_padre" name="nombre_padre" required>
+      </div>
+      <div class="form-group">
+        <label>Nombre de la Madre:</label>
+        <input type="text" class="form-control" [(ngModel)]="alumno.nombre_madre" name="nombre_madre" required>
+      </div>
+      <div class="form-group">
+        <label>Grado:</label>
+        <input type="number" class="form-control" [(ngModel)]="alumno.grado" name="grado" required>
+      </div>
+      <div class="form-group">
+        <label>Sección:</label>
+        <input type="text" class="form-control" [(ngModel)]="alumno.seccion" name="seccion" required>
+      </div>
+      <div class="form-group">
+        <label>Fecha de Ingreso:</label>
+        <input type="date" class="form-control" [(ngModel)]="alumno.fecha_ingreso" name="fecha_ingreso" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar Alumno</button>
+    </form>
+  
+    <hr>
+  
+    <h2>Consultar Alumnos por Grado</h2>
+    <div class="form-group">
+      <label>Grado:</label>
+      <input type="number" [(ngModel)]="gradoConsulta" class="form-control">
+      <button (click)="consultarAlumnos()" class="btn btn-secondary">Consultar</button>
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Nombre del Padre</th>
+          <th>Nombre de la Madre</th>
+          <th>Grado</th>
+          <th>Sección</th>
+          <th>Fecha de Ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnos">
+          <td>{{ alumno.nombre }}</td>
+          <td>{{ alumno.fecha_nacimiento | date }}</td>
+          <td>{{ alumno.nombre_padre }}</td>
+          <td>{{ alumno.nombre_madre }}</td>
+          <td>{{ alumno.grado }}</td>
+          <td>{{ alumno.seccion }}</td>
+          <td>{{ alumno.fecha_ingreso | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
